@@ -5,6 +5,7 @@
   "description": "Personal website of Anirud Samala",
   "homepage": "https://eragon512.github.io/",
   "dependencies": {
+    "@material-ui/core": "^3.0.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },
