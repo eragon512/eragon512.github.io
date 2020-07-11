@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Media from 'react-bootstrap/Media'
 import Button from 'react-bootstrap/Button'
+import ListGroup from 'react-bootstrap/ListGroup'
+import Form from 'react-bootstrap/Form'
 
 function AboutMe() {
   return (
@@ -33,6 +35,33 @@ function AboutMe() {
       </Row>
     </Container>
   )
+}
+
+function MinimiseToggle(props) {
+  const {
+    isMinimised,
+    setMinimised
+  } = props
+
+  const label = isMinimised ? 'Switch to Full View' : 'Switch to Minimal View'
+
+  return (
+    <Container>
+      <Row>
+        <Col xs={3} md={8}></Col>
+        <Col xs={9} md={4}>
+          <Form.Switch
+            id="minimise-toggle"
+            label={label}
+            checked={!isMinimised}
+            onChange={() => setMinimised(!isMinimised)}
+          />
+        </Col>
+      </Row>
+      
+    </Container>
+  )
+
 }
 
 function SocialMedia() {
@@ -81,92 +110,101 @@ function SocialMedia() {
   )
 }
 
-function Languages() {
-  const decks = [
+function Languages(props) {
+  const cards = [
     {
-      cards: [
-        {
-          image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Dk_c6Kwi4JaIxYDlvE3NfQHaHa%26pid%3DApi&f=1',
-          title: 'JavaScript',
-          text: [
-            "JavaScript® (often shortened to JS) is a",
-            "lightweight, interpreted, object-oriented language with first-class functions.\n",
-            "It is best known as the scripting language for Web pages",
-          ].join(' '),
-        },
-        {
-          image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.fqrwtknLZGtLUY_NgPcQmgHaHa%26pid%3DApi&f=1',
-          title: 'HTML',
-          text: 'HTML (HyperText Markup Language) is the most basic building block of the Web. It defines the meaning and structure of web content.',
-        },
-        {
-          image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.yUIb5S_kj98Eg5tT-Onx1AHaHa%26pid%3DApi&f=1',
-          title: 'CSS',
-          text: 'Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML',
-        },
-        {
-          image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.wpCkQ7PyQHMiUqgT1KbPZQHaHa%26pid%3DApi&f=1',
-          title: 'Python',
-          text: 'Python is an interpreted, high-level, general-purpose programming language.',
-        },
-        {
-          image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.q-jmfnoGUSAJVTwsvuZ3dQHaHa%26pid%3DApi&f=1',
-          title: 'Java',
-          text: 'Java is a high-level programming language, which runs on a variety of platforms, such as Windows, Mac OS, and the various versions of UNIX.',
-        },
+      image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Dk_c6Kwi4JaIxYDlvE3NfQHaHa%26pid%3DApi&f=1',
+      title: 'JavaScript',
+      text: [
+        "JavaScript® (often shortened to JS) is a",
+        "lightweight, interpreted, object-oriented language with first-class functions.\n",
+        "It is best known as the scripting language for Web pages",
+      ].join(' '),
+    },
+    {
+      image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.fqrwtknLZGtLUY_NgPcQmgHaHa%26pid%3DApi&f=1',
+      title: 'HTML',
+      text: 'HTML (HyperText Markup Language) is the most basic building block of the Web. It defines the meaning and structure of web content.',
+    },
+    {
+      image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.yUIb5S_kj98Eg5tT-Onx1AHaHa%26pid%3DApi&f=1',
+      title: 'CSS',
+      text: 'Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML',
+    },
+    {
+      image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.wpCkQ7PyQHMiUqgT1KbPZQHaHa%26pid%3DApi&f=1',
+      title: 'Python',
+      text: 'Python is an interpreted, high-level, general-purpose programming language.',
+    },
+    {
+      image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.q-jmfnoGUSAJVTwsvuZ3dQHaHa%26pid%3DApi&f=1',
+      title: 'Java',
+      text: 'Java is a high-level programming language, which runs on a variety of platforms, such as Windows, Mac OS, and the various versions of UNIX.',
+    },
 
-        {
-          image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.rlbtbFMlApJ1BvCnA3_aGgHaHa%26pid%3DApi&f=1',
-          title: 'PHP',
-          text: 'PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages',
-        },
-      ]
+    {
+      image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.rlbtbFMlApJ1BvCnA3_aGgHaHa%26pid%3DApi&f=1',
+      title: 'PHP',
+      text: 'PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages',
     },
   ]
+
+  const {
+    isMinimised,
+  } = props
+
+  if(isMinimised) {
+    return (
+      <Container className='text-center'>
+        <h2 className="text-center">Languages</h2>
+        <br />
+        <ListGroup horizontal='md' className='justify-content-center'>
+          {
+            cards.map(card => (
+              <ListGroup.Item>
+                <img
+                  height='50vw'
+                  width='auto'
+                  src={card.image_url}
+                  alt={card.title}
+                /> &nbsp;
+                {card.title}
+              </ListGroup.Item>
+            ))
+          }
+        </ListGroup>
+      </Container>
+    )
+  }
 
   return (
     <Container>
       <h2 className="text-center">Languages</h2>
       <br />
-      {
-        decks.map(deck => (
-          <Row>
-            {
-              deck.cards.map(card => (
-                <Col xs={12} sm={4} lg={2}>
-                  <div className='text-center'>
-                    <img
-                      height='150vh'
-                      width='auto'
-                      className=''
-                      src={card.image_url}
-                      alt={card.title}
-                    />
-                  </div>
-                  <br />
-                  <h5 className='text-center'>{card.title}</h5>
-                  {/* <Card>
-                      <Card.Img
-                        variant="top"
-                        
-                        
-                      />
-                      <Card.Body>
-                        <Card.Title>{card.title}</Card.Title>
-                        <Card.Text>{card.text}</Card.Text>
-                      </Card.Body>
-                    </Card> */}
-                </Col>
-              ))
-            }
-          </Row>
-        ))
-      }
+      <Row>
+        {
+          cards.map(card => (
+            <Col xs={12} sm={4} lg={2}>
+              <div className='text-center'>
+                <img
+                  height='150vh'
+                  width='auto'
+                  className=''
+                  src={card.image_url}
+                  alt={card.title}
+                />
+              </div>
+              <br />
+              <h5 className='text-center'>{card.title}</h5>
+            </Col>
+          ))
+        }
+      </Row>
     </Container>
   )
 }
 
-function TechStack() {
+function TechStack(props) {
   const decks = [
     {
       header: 'Modern Web Frameworks',
@@ -278,7 +316,7 @@ function TechStack() {
         },
         {
           image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.1uK05cooiYAa0i7OUD3HoQHaDL%26pid%3DApi&f=1',
-          title: 'Beautiful Soup 4',
+          title: 'BeautifulSoup',
           tags: ['scraping', 'parser', 'data', 'web'],
         },
       ]
@@ -358,6 +396,46 @@ function TechStack() {
       ]
     }
   ]
+
+  const {
+    isMinimised,
+  } = props
+
+  if(isMinimised) {
+    return (
+      <Container>
+        <h2 className="text-center">Tech Stack</h2>
+        <br />
+        <Row>
+          {
+              decks.map(deck => (
+                <Col xs={6} sm={4} md={3}>
+                  <ListGroup>
+                    {
+                      deck.cards.map(card => (
+                        <ListGroup.Item>
+                          <img
+                            height='40vw'
+                            width='auto'
+                            src={card.image_url}
+                            alt={card.title}
+                          /> &nbsp;
+                          {card.title}
+                        </ListGroup.Item>
+                      ))
+                    }
+                  </ListGroup>
+                  <br />
+                </Col>
+              ))
+            }
+        </Row>
+        
+      </Container>
+    )
+  }
+
+
   return (
     <Container className="text-center">
       <h2 className="text-center">Tech Stack</h2>
@@ -407,7 +485,7 @@ function TechStack() {
   )
 }
 
-function OpenSourceContributions() {
+function OpenSourceContributions(props) {
   const cards = [
     {
       image_url: 'https://camo.githubusercontent.com/0ded3b0835a4ace4664a6833985affbde783ed47/68747470733a2f2f64337676366c703535716a6171632e636c6f756466726f6e742e6e65742f6974656d732f303631663041326e3142304833703054317031662f72656163742d7374796c65677569646973742d6c6f676f2e706e67',
@@ -429,6 +507,35 @@ function OpenSourceContributions() {
       text: 'This is a wider card with supporting text below as a natural lead-in to additional content.This content is a little bit longer.',
     },
   ]
+
+  const {
+    isMinimised,
+  } = props
+
+  if (isMinimised) {
+    return (
+      <Container className='text-center'>
+        <h2 className="text-center">Languages</h2>
+        <br />
+        <ListGroup horizontal='sm' className='justify-content-center'>
+          {
+            cards.map(card => (
+              <ListGroup.Item>
+                <img
+                  height='100vw'
+                  width='auto'
+                  className={card.class}
+                  src={card.image_url}
+                  alt={card.title}
+                /> &nbsp;
+                {card.title}
+              </ListGroup.Item>
+            ))
+          }
+        </ListGroup>
+      </Container>
+    )
+  }
 
   return (
     <Container>
@@ -596,24 +703,31 @@ function Education() {
 }
 
 function App() {
+
+  const [isMinimised, setMinimised] = useState(false)
+  
   return (
     <Container fluid>
+      <br />
+      <MinimiseToggle
+        isMinimised={isMinimised}
+        setMinimised={setMinimised}
+      />
       <br />
       <AboutMe />
       <br /><br />
       <SocialMedia />
       <br /><br />
-      <Languages />
+      <Languages isMinimised={isMinimised} />
       <br /><br />
-      <TechStack />
+      <TechStack isMinimised={isMinimised} />
       <br /><br />
-      <OpenSourceContributions />
+      <OpenSourceContributions isMinimised={isMinimised} />
       <br /><br />
       <WorkExperience />
       <br /><br />
       <Education />
     </Container>
-    
   )
 }
 
