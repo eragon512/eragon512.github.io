@@ -82,10 +82,6 @@ function SocialMedia() {
       image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.jMgVcg68z6NMrL90xT1lfgHaHa%26pid%3DApi&f=1',
       href: 'https://wa.me/917660992289',
     },
-    {
-      image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.JFHOMDeVtpCmSAYKPULZJQHaHa%26pid%3DApi&f=1',
-      href: 'https://twitter.com/eragon5121',
-    },
   ]
   return (
     <div className="text-center">
