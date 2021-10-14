@@ -22,7 +22,7 @@ function AboutMe() {
         <Col xs={12} sm={6} className="d-flex">
           <div className="align-self-center">
             <h1>Anirud Samala</h1>
-            <h3>PayPal | BITS Pilani Hyderabad</h3>
+            <h3>Rubrik | PayPal | BITS Pilani Hyderabad</h3>
             <br />
             <p>
               anirud.samala@gmail.com <br /><br />
@@ -118,6 +118,10 @@ function Languages(props) {
       ].join(' '),
     },
     {
+      image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.iconscout.com%2Ficon%2Ffree%2Fpng-512%2Ftypescript-1174965.png&f=1&nofb=1',
+      title: 'TypeScript',
+    },
+    {
       image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.fqrwtknLZGtLUY_NgPcQmgHaHa%26pid%3DApi&f=1',
       title: 'HTML',
       text: 'HTML (HyperText Markup Language) is the most basic building block of the Web. It defines the meaning and structure of web content.',
@@ -136,12 +140,6 @@ function Languages(props) {
       image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.q-jmfnoGUSAJVTwsvuZ3dQHaHa%26pid%3DApi&f=1',
       title: 'Java',
       text: 'Java is a high-level programming language, which runs on a variety of platforms, such as Windows, Mac OS, and the various versions of UNIX.',
-    },
-
-    {
-      image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.rlbtbFMlApJ1BvCnA3_aGgHaHa%26pid%3DApi&f=1',
-      title: 'PHP',
-      text: 'PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages',
     },
   ]
 
@@ -211,9 +209,9 @@ function TechStack(props) {
           tags: ['ui', 'frontend', 'component', 'javascript'],
         },
         {
-          image_url: 'https://cdn.iconscout.com/icon/free/png-512/redux-283024.png',
-          title: 'Redux',
-          tags: ['react', 'state'],
+          image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.5_MqPhxTjvOHsqv1pV1UaAHaHa%26pid%3DApi&f=1',
+          title: 'GraphQL',
+          tags: ['api'],
         },
         {
           image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xQCjgB2DVqhtqGoGw9E6TQHaHa%26pid%3DApi&f=1',
@@ -280,8 +278,8 @@ function TechStack(props) {
           tags: ['testing', 'test-runner', 'browser'],
         },
         {
-          image_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.gVaDsN0DWqmxMMXfKhh0WAAAAA%26pid%3DApi&f=1',
-          title: 'Enzyme',
+          image_url: 'https://testing-library.com/img/logo-large.png',
+          title: 'React Testing Library',
           tags: ['unit-testing', 'browser', 'react-components', ],
         },
         {
@@ -451,11 +449,10 @@ function TechStack(props) {
                     <img
                       height='150vw'
                       width='auto'
-                      className=''
+                      className='mb-2'
                       src={card.image_url}
                       alt={card.title}
                     />
-                    <br />
                     <h5 className='text-center'>{card.title}</h5>
                     {
                       [].concat(card.tags).filter(tag => tag).map(tag => (
@@ -573,85 +570,71 @@ function OpenSourceContributions(props) {
   )
 }
 
+function WorkExperienceItem({companyLogoUrl, companyName, role, duration}) {
+  return (
+    <Media>
+      <img
+        height='100rem'
+        width='auto'
+        className="align-self-center mr-4"
+        src={companyLogoUrl}
+        alt={companyName}
+      />
+      <Media.Body>
+        <h4>{companyName}</h4>
+        <h5>{role}</h5>
+        <h6>{duration}</h6>
+      </Media.Body>
+    </Media>
+  )
+}
+
 function WorkExperience() {
   return (
     <Container>
       <h2 className="text-center">Work Experience</h2>
       <br />
-      <Media>
-        <img
-          height='100rem'
-          width='auto'
-          className="align-self-center mr-4"
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.TBvJQM0YORRyOAY6RwAQkwHaHa%26pid%3DApi&f=1"
-          alt="PayPal"
-        />
-        <Media.Body>
-          <h4>PayPal</h4>
-          <h5>Software Engineer II</h5>
-          <h6>2020 - Current</h6>
-        </Media.Body>
-      </Media>
+      <WorkExperienceItem
+        companyLogoUrl='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Pt0dcASj_JupozaC7rK6DwHaHa%26pid%3DApi&f=1'
+        companyName='Rubrik'
+        role='Frontend Engineer'
+        duration='2021 - Current'
+      />
       <br />
-      <Media>
-        <img
-          height='100rem'
-          width='auto'
-          className="align-self-center mr-4"
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.TBvJQM0YORRyOAY6RwAQkwHaHa%26pid%3DApi&f=1"
-          alt="PayPal"
-        />
-        <Media.Body>
-          <h4>PayPal</h4>
-          <h5>Software Engineer I</h5>
-          <h6>2018 - 2020</h6>
-        </Media.Body>
-      </Media>
+      <WorkExperienceItem
+        companyLogoUrl='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.TBvJQM0YORRyOAY6RwAQkwHaHa%26pid%3DApi&f=1'
+        companyName='PayPal'
+        role='Software Engineer II'
+        duration='2020 - 2021'
+      />
       <br />
-      <Media>
-        <img
-          height='100rem'
-          width='auto'
-          className="align-self-center mr-4"
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.TBvJQM0YORRyOAY6RwAQkwHaHa%26pid%3DApi&f=1"
-          alt="PayPal"
-        />
-        <Media.Body>
-          <h4>PayPal</h4>
-          <h5>Software Intern</h5>
-          <h6>2018 - 2018</h6>
-        </Media.Body>
-      </Media>
+      <WorkExperienceItem
+        companyLogoUrl='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.TBvJQM0YORRyOAY6RwAQkwHaHa%26pid%3DApi&f=1'
+        companyName='PayPal'
+        role='Software Engineer II'
+        duration='2020 - 2021'
+      />
       <br />
-      <Media>
-        <img
-          height='100rem'
-          width='auto'
-          className="align-self-center mr-4"
-          src="https://m.iotone.com/files/vendor/neebal-technologies-pvt-ltd_1.jpg"
-          alt="PayPal"
-        />
-        <Media.Body>
-          <h4>Neebal Technologies</h4>
-          <h5>Summer Intern</h5>
-          <h6>2017 - 2017</h6>
-        </Media.Body>
-      </Media>
+      <WorkExperienceItem
+        companyLogoUrl='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.TBvJQM0YORRyOAY6RwAQkwHaHa%26pid%3DApi&f=1'
+        companyName='PayPal'
+        role='Software Engineer I'
+        duration='2018 - 2020'
+      />
       <br />
-      <Media>
-        <img
-          height='40rem'
-          width='auto'
-          className="align-self-center mr-4"
-          src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Sterlite_Technologies_Limited.png"
-          alt="PayPal"
-        />
-        <Media.Body>
-          <h4>Sterlite Technologies</h4>
-          <h5>Summer Intern</h5>
-          <h6>2016 - 2016</h6>
-        </Media.Body>
-      </Media>
+      <WorkExperienceItem
+        companyLogoUrl='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.TBvJQM0YORRyOAY6RwAQkwHaHa%26pid%3DApi&f=1'
+        companyName='PayPal'
+        role='Software Engineer Intern'
+        duration='2018 - 2018'
+      />
+      <br />
+      <WorkExperienceItem
+        companyLogoUrl='https://m.iotone.com/files/vendor/neebal-technologies-pvt-ltd_1.jpg'
+        companyName='Neebal'
+        role='Summer Intern'
+        duration='2017 - 2017'
+      />
     </Container>
   )
 }
